@@ -1,21 +1,16 @@
 import visdom
 import numpy as np
-viz=visdom.Visdom(env='Faster_RCNN_Test_4',port=8097)
+viz=visdom.Visdom(env='TY',port=8097)
 
 my_win = viz.line(X = np.array([0]),
                   Y = np.column_stack((0,0,0,0)),
                   opts = {
-                        'width':600,
-                        'height':600,
-                        'marginleft':30,
-                        'marginbottom':30,
+                        'title': 'Viz_line_test', 'xlabel': 'iterations', 'ylabel': 'losses',
+                        'width': 600, 'height': 600, 'marginleft': 30, 'marginbottom': 30,
                         'dash': np.array(['solid','solid','dash','dashdot']),
                         'linecolor': np.array([[0,0,255], [0,255,0],[255,0,0],[135,125,125]]),
-                        'title':'Faster_RCNN_Test_4',
-                        'xlabel':'iterations',
-                        'ylabel':'losses',
-                        'showlegend':True,
-                        'legend':['rpn_cls','rpn_reg','rcnn_cls','rcnn_reg'],}
+                        'legend':['rpn_cls','rpn_reg','rcnn_cls','rcnn_reg'],
+                        'showlegend':True, }                        
                         )
 
 viz.line(win=my_win,
